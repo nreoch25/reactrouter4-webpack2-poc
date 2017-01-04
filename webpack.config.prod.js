@@ -1,14 +1,15 @@
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var ManifestPlugin = require("webpack-manifest-plugin");
-//var ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
-var InlineManifestPlugin = require("webpack-manifest-plugin");
+var ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
 var cssnext = require("postcss-cssnext");
 
 module.exports = {
   devtool: "hidden-source-map",
   entry : {
-    app: "./client/index.js",
+    app: [
+      "./client/index.js",
+    ],
     vendor: [
       "react",
       "react-dom",
@@ -20,7 +21,8 @@ module.exports = {
   },
   output: {
     path: __dirname + "/dist/",
-    filename: "bundle.[name].[chunkhash].js",
+    filename: "[name].[chunkhash].js",
+    chunkFilename: "[name].[chunkhash].js",
     publicPath: "/"
   },
   resolve: {
@@ -54,6 +56,11 @@ module.exports = {
         "NODE_ENV": JSON.stringify("production")
       }
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: Infinity,
+      filename: "vendor.js"
+    }),
     new ExtractTextPlugin({
       filename: "app.[chunkhash].css",
       allChunks: true
@@ -64,7 +71,10 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: [ "vendor", "manifest" ]
     }),
-    new InlineManifestPlugin(),
+    new ChunkManifestPlugin({
+      filename: "chunk-manifest.json",
+      manifestVariable: "webpackManifest",
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
