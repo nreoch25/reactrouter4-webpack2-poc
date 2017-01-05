@@ -68,9 +68,6 @@ module.exports = {
     new ManifestPlugin({
       basePath: "/"
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: [ "vendor", "manifest" ]
-    }),
     new ChunkManifestPlugin({
       filename: "chunk-manifest.json",
       manifestVariable: "webpackManifest",

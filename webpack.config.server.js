@@ -25,6 +25,9 @@ module.exports = {
             "react",
             "es2015",
             "stage-0"
+          ],
+          plugins: [
+            ["system-import-transformer", { "modules": "common" }]
           ]
         }
       },
