@@ -23,5 +23,29 @@ export default (
         });
       }}
     />
+    <Route
+      path="arts"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require("./components/Arts").default);
+        });
+      }}
+    />
+    <Route
+      path="news"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require("./components/News").default);
+        });
+      }}
+    />
+    <Route
+      path="sports"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require("./components/Sports").default);
+        });
+      }}
+    />
   </Route>
 );

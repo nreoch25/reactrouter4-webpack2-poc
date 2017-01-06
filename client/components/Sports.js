@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-class Index extends Component {
+class Sports extends Component {
   render() {
     return (
-      <h1>Ocelot POC</h1>
+      <h1>Sports</h1>
     );
   }
 }
 
-export default Index;
+export default Sports;

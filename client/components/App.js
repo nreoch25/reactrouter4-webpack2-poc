@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import Nav from "./global/Nav";
 import { fetchPosts, fetchPhotos } from "../actions/AppActions";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <header>Site Header</header>
+        <header>
+          <Nav />
+        </header>
         {this.props.children}
         <footer>Site Footer</footer>
       </div>
