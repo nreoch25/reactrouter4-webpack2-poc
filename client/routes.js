@@ -12,6 +12,10 @@ if (typeof require.ensure !== "function") {
 if (process.env.NODE_ENV !== "production") {
   // Require async routes only in development for react-hot-reloader to work.
   require("./components/Index");
+  require("./components/Arts");
+  require("./components/News");
+  require("./components/Sports");
+  require("./components/Detail");
 }
 
 export default (
@@ -24,10 +28,26 @@ export default (
       }}
     />
     <Route
+      path="homepage/:id"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require("./components/Detail").default);
+        });
+      }}
+    />
+    <Route
       path="arts"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require("./components/Arts").default);
+        });
+      }}
+    />
+    <Route
+      path="arts/:id"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require("./components/Detail").default);
         });
       }}
     />
@@ -40,10 +60,26 @@ export default (
       }}
     />
     <Route
+      path="news/:id"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require("./components/Detail").default);
+        });
+      }}
+    />
+    <Route
       path="sports"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require("./components/Sports").default);
+        });
+      }}
+    />
+    <Route
+      path="sports/:id"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require("./components/Detail").default);
         });
       }}
     />
