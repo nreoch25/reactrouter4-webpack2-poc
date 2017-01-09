@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { fetchContent } from "../actions/AppActions";
 
 class Sports extends Component {
+  componentDidMount() {
+    this.props.fetchContent("sports");
+  }
   render() {
     return (
       <div>
@@ -25,4 +28,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {})(Sports);
+export default connect(mapStateToProps, { fetchContent })(Sports);

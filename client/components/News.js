@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { fetchContent } from "../actions/AppActions";
 
 class News extends Component {
+  componentDidMount() {
+    this.props.fetchContent("news");
+  }
   render() {
     return (
       <div>
@@ -25,4 +28,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {})(News);
+export default connect(mapStateToProps, { fetchContent })(News);
