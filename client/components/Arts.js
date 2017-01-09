@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { fetchContent } from "../actions/AppActions";
 
 class Arts extends Component {
   render() {
@@ -7,5 +8,9 @@ class Arts extends Component {
     );
   }
 }
+
+Arts.need = [
+  () => { return fetchContent("arts"); }
+];
 
 export default Arts;

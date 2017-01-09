@@ -1,12 +1,11 @@
-import { ADD_POSTS, ADD_PHOTOS } from "../actions/AppActions";
-const initialState = { posts: [], photos: [] };
+import { ADD_CONTENT } from "../actions/AppActions";
+const initialState = { content: [] };
 
 const AppReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POSTS:
-      return { ...state, posts: action.posts };
-    case ADD_PHOTOS:
-      return { ...state, photos: action.photos };
+    case ADD_CONTENT:
+      console.log(action);
+      return { ...state, content: action.payload };
     default:
       return state;
   }

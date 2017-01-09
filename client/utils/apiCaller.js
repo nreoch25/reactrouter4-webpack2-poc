@@ -1,8 +1,8 @@
 import fetch from "isomorphic-fetch";
-const API_URL = "https://jsonplaceholder.typicode.com";
+const API_URL = "https://api-gw-dev.radio-canada.ca/aggregate-content/v1/items?pageSize=20&page=1&categoryIds=";
 
-export default function callApi(endpoint, method) {
-  return fetch(`${API_URL}/${endpoint}`, {
+export default function callApi(category, method) {
+  return fetch(`${API_URL}${category}`, {
     headers: { "content-type": "application/json" },
     method: method
   })

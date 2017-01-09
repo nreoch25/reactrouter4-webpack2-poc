@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { fetchContent } from "../actions/AppActions";
 
 class Sports extends Component {
   render() {
@@ -7,5 +8,9 @@ class Sports extends Component {
     );
   }
 }
+
+Sports.need = [
+  () => { return fetchContent("sports"); }
+];
 
 export default Sports;

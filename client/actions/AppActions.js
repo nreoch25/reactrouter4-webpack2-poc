@@ -1,35 +1,32 @@
 import callApi from "../utils/apiCaller";
 
 // Export Constants
-export const ADD_POSTS = "ADD_POSTS";
-export const ADD_PHOTOS = "ADD_PHOTOS";
+export const ADD_CONTENT = "ADD_CONTENT";
 
-export function addPosts(posts) {
+export function addContent(content) {
   return {
-    type: ADD_POSTS,
-    posts
+    type: ADD_CONTENT,
+    payload: content
   };
 }
 
-export function addPhotos(photos) {
-  return {
-    type: ADD_PHOTOS,
-    photos
-  };
+function getCategory(category) {
+  switch(category) {
+    case "arts":
+      return "21";
+    case "news":
+      return "20";
+    case "sports":
+      return "19";
+  }
 }
 
-export function fetchPosts() {
+export function fetchContent(category) {
+  let catID = getCategory(category);
   return (dispatch) => {
-    return callApi("posts", "get").then(res => {
-      dispatch(addPosts(res));
-    });
-  };
-}
-
-export function fetchPhotos() {
-  return (dispatch) => {
-    return callApi("photos", "get").then(res => {
-      dispatch(addPhotos(res));
+    return callApi(catID, "get").then(res => {
+      console.log(res);
+      dispatch(addContent(res));
     });
   };
 }

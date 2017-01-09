@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Nav from "./global/Nav";
-import { fetchPosts, fetchPhotos } from "../actions/AppActions";
 
 class App extends Component {
   render() {
@@ -15,10 +14,5 @@ class App extends Component {
     );
   }
 }
-
-App.need = [
-  () => { return fetchPosts(); },
-  () => { return fetchPhotos(); }
-];
 
 export default App;
