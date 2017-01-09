@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import ContentList from "./global/ContentList";
+import { connect } from "react-redux";
 import { fetchContent } from "../actions/AppActions";
 
 class News extends Component {
   render() {
     return (
-      <h1>News</h1>
+      <div>
+        <h1>News</h1>
+        <legend></legend>
+        <ContentList content={this.props.content} />
+      </div>
     );
   }
 }
@@ -13,4 +19,10 @@ News.need = [
   () => { return fetchContent("news"); }
 ];
 
-export default News;
+function mapStateToProps(state) {
+  return {
+    content: state.app.content
+  }
+}
+
+export default connect(mapStateToProps, {})(News);

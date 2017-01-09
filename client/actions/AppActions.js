@@ -25,7 +25,6 @@ export function fetchContent(category) {
   let catID = getCategory(category);
   return (dispatch) => {
     return callApi(catID, "get").then(res => {
-      console.log(res);
       dispatch(addContent(res));
     });
   };

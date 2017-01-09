@@ -9,7 +9,11 @@ class App extends Component {
           <Nav />
         </header>
         {this.props.children}
-        <footer>Site Footer</footer>
+        <footer style={{marginTop: "20px"}}>
+          <div className="panel panel-default">
+            <div className="panel-footer"><h4>Ocelot Footer</h4></div>
+          </div>
+        </footer>
       </div>
     );
   }
