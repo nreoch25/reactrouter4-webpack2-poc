@@ -1,6 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchDetail } from "../actions/AppActions";
+
 
 class Detail extends Component {
+  componentDidMount() {
+    this.props.fetchDetail(this.props.params.id);
+  }
   render() {
     return (
       <div>
@@ -10,4 +16,10 @@ class Detail extends Component {
   }
 }
 
-export default Detail;
+function mapStateToProps(state) {
+  return {
+    detail: state.app.detail
+  }
+}
+
+export default connect(mapStateToProps, { fetchDetail })(Detail);

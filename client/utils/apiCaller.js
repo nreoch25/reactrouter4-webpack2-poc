@@ -1,8 +1,7 @@
 import fetch from "isomorphic-fetch";
-const API_URL = "https://api-gw-dev.radio-canada.ca/aggregate-content/v1/items?pageSize=20&page=1&categoryIds=";
 
-export default function callApi(category, method) {
-  return fetch(`${API_URL}${category}`, {
+export default function callApi(url, method) {
+  return fetch(`${url}`, {
     headers: { "content-type": "application/json" },
     method: method
   })

@@ -5,9 +5,9 @@ export default function ContentList(props: Object) {
   return (
     <div>
       {
-        props.content.map(item => (
-          <ContentListItem content={item} />
-        ))
+        props.content.map((item, i) => {
+          return <ContentListItem key={i} content={item} />;
+        })
       }
     </div>
   );
