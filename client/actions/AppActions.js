@@ -37,8 +37,6 @@ export function fetchContent(category) {
 export function fetchDetail(sourceID) {
   let url = `${DETAIL_URL}${sourceID}`;
   return ( dispatch ) => {
-    return callApi(url, "get").then(res => {
-      console.log("DETAIL RESPONSE", res);
-    });
+    console.log("FETCH DETAIL");
   };
 }
