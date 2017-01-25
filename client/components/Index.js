@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Index extends Component {
   render() {
     return (
-      <h1>HOMEPAGE Component</h1>
+      <h1>HOMEPAGE</h1>
     );
   }
 }

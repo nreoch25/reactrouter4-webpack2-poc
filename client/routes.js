@@ -22,65 +22,81 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require("./components/Index").default);
-        });
+        System.import("./components/Index").then((module) => {
+              cb(null, module.default);
+          }).catch((error) => {
+              console.log("ERROR", error);
+          });
       }}
     />
     <Route
       path="homepage/:id"
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require("./components/Detail").default);
-        });
+        System.import("./components/Detail").then((module) => {
+              cb(null, module.default);
+          }).catch((error) => {
+              console.log("ERROR", error);
+          });
       }}
     />
     <Route
       path="arts"
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require("./components/Arts").default);
-        });
+        System.import("./components/Arts").then((module) => {
+              cb(null, module.default);
+          }).catch((error) => {
+              console.log("ERROR", error);
+          });
       }}
     />
     <Route
       path="arts/:id"
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require("./components/Detail").default);
-        });
+        System.import("./components/Detail").then((module) => {
+              cb(null, module.default);
+          }).catch((error) => {
+              console.log("ERROR", error);
+          });
       }}
     />
     <Route
       path="news"
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require("./components/News").default);
-        });
+        System.import("./components/News").then((module) => {
+              cb(null, module.default);
+          }).catch((error) => {
+              console.log("ERROR", error);
+          });
       }}
     />
     <Route
       path="news/:id"
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require("./components/Detail").default);
-        });
+        System.import("./components/Detail").then((module) => {
+              cb(null, module.default);
+          }).catch((error) => {
+              console.log("ERROR", error);
+          });
       }}
     />
     <Route
       path="sports"
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require("./components/Sports").default);
-        });
+        System.import("./components/Sports").then((module) => {
+              cb(null, module.default);
+          }).catch((error) => {
+              console.log("ERROR", error);
+          });
       }}
     />
     <Route
       path="sports/:id"
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require("./components/Detail").default);
-        });
+        System.import("./components/Detail").then((module) => {
+              cb(null, module.default);
+          }).catch((error) => {
+              console.log("ERROR", error);
+          });
       }}
     />
   </Route>

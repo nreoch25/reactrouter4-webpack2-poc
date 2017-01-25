@@ -20,16 +20,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader",
-        query: {
-          presets: [
-            "react",
-            "es2015",
-            "stage-0"
-          ],
-          plugins: [
-            ["system-import-transformer", { "modules": "common" }]
-          ]
-        }
       },
       {
         test: /\.json$/,
